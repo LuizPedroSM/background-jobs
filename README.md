@@ -2,7 +2,7 @@
 
 > Tarefas em background utilizando Node.js e Redis. Projeto seguindo o video da [DIO]
 
-## Video
+## 🎥 Video
 
 https://www.youtube.com/watch?v=mRHpgEF5JGU
 

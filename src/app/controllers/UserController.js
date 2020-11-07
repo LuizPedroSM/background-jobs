@@ -1,5 +1,6 @@
 import passwordGenerator from "password-generator";
-import Mail from "../lib/Mail";
+
+import Queue from "../lib/Queue";
 
 export default {
     async store(req, res) {
@@ -11,12 +12,7 @@ export default {
             password: passwordGenerator(15, false)
         };
 
-        await Mail.sendMail({
-            from: 'DIO <contato@dio.com.br>',
-            to: `${name} <${email}>`,
-            subject: 'Cadastro de usuário',
-            html: `Olá, ${name}, bem-vindo a DIO`
-        })
+        await Queue.add('RegistrationMail', { user })
 
         return res.json(user);
     }
